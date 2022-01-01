@@ -56,12 +56,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
         KC_NO,          KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_NO,
         KC_NO,          LALT_T(KC_A),   LCTL_T(KC_S),   LSFT_T(KC_D),   LGUI_T(KC_F),   KC_G,
-        KC_NO,          KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,          KC_NO,
+        KC_NO,          KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           KC_NO,
         KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
 
                                                                                         KC_NO,          KC_NO,
                                                                                                         KC_NO,
-                                                                        TL(NUM,KC_SPC),         KC_BSPC,        KC_NO,
+                                                                        LT(NUM, KC_SPC),KC_BSPC,        KC_NO,
         // right hand
         KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
         KC_NO,          KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_NO,
@@ -72,7 +72,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,
         KC_NO,          KC_TAB,         KC_ENT
     ),
-
     [NUM] = LAYOUT_ergodox(
         // left hand
         KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
@@ -83,16 +82,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
                                                                                         KC_NO,          KC_NO,
                                                                                                         KC_NO,
-                                                                        KC_SPC,         KC_BSPC,        KC_NO,
+                                                                        KC_NO,          KC_NO,          KC_NO,
         // right hand
         KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
-        KC_NO,          KC_NO,          KC_NO,          KC_7,           KC_8,           KC_9,          KC_NO,
-                        KC_NO,          KC_NO,          KC_4            KC_5            KC_6,  KC_NO,
-        KC_NO,          KC_NO,          KC_NO,          KC_1,           KC_2,           KC_3,          KC_NO,
+        KC_NO,          KC_NO,          KC_NO,          KC_7,           KC_8,           KC_9,           KC_NO,
+                        KC_NO,          KC_NO,          KC_4,           KC_5,           KC_6,           KC_NO,
+        KC_NO,          KC_NO,          KC_NO,          KC_1,           KC_2,           KC_3,           KC_NO,
                                         KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
         KC_NO,          KC_NO,
         KC_NO,
-        KC_NO,          KC_NO,          KC_0
+        KC_NO,          KC_NO,         KC_0
     ),
 };
 
@@ -113,7 +112,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 void matrix_scan_user(void) {
-    uint8_t layer = biton32(layer_state);
+    // uint8_t layer = biton32(layer_state);
 
     ergodox_board_led_off();
     ergodox_right_led_1_off();
