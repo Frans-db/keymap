@@ -58,9 +58,9 @@ Format (with homerow mods):
  *   | Ctlr | Gui  |Option| Left | Right|                                       |  Up  | Down |      |   [  |   ]    |
  *   `----------------------------------'                                       `------------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        |      |      |       |      |      |
+ *                                        |      | VOLU |       |      |      |
  *                                 ,------|------|------|       |------+------+------.
- *                                 |      |      |      |       |      |      |      |
+ *                                 |      |      | VOLD |       |      |      |      |
  *                                 | Space| Tab  |------|       |------|Enter |Backsp|
  *                                 |      |      |m_play|       |      |      |ace   |
  *                                 `--------------------'       `--------------------'
@@ -81,8 +81,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LSFT,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           KC_NO,
         KC_LCTL,        KC_LGUI,        KC_LALT,        KC_LEFT,        KC_RIGHT,
 
-                                                                                        KC_NO,          KC_NO,
-                                                                                                        KC_NO,
+                                                                                        KC_NO,          KC_VOLU,
+                                                                                                        KC_VOLD,
                                                                         KC_SPC,         KC_TAB,         KC_MPLY,
         // right hand
         KC_GRAVE,       KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINS,
