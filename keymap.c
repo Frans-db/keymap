@@ -23,107 +23,75 @@ Format (with homerow mods):
 ),
 */
 
+/*
+        // left hand
+        KC_ESC,         KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_NO,
+        KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_NO,
+        KC_CAPS,        KC_A,           KC_S,           KC_D,           KC_F,           KC_G,
+        KC_LSFT,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           KC_NO,
+        KC_LCTL,        KC_LGUI,        KC_LALT,        KC_NO,          KC_GRAVE,
+
+                                                                                        KC_NO,          KC_NO,
+                                                                                                        KC_NO,
+                                                                        KC_SPC,         KC_TAB,         KC_NO,
+        // right hand
+        KC_NO,          KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINS,
+        KC_NO,          KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_EQL,
+                        KC_H,           KC_J,           KC_K,           KC_L,           KC_SCLN,        KC_QUOT,
+        KC_NO,          KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLSH,        KC_BSLS,
+                                        KC_NO,          KC_NO,          KC_NO,          KC_LBRC,        KC_RBRC,
+        KC_NO,          KC_NO,
+        KC_NO,
+        KC_NO,          KC_ENT,         KC_BSPC
+*/
+
+/*
+ * ,--------------------------------------------------.           ,--------------------------------------------------.
+ * |  Esc   |   1  |   2  |   3  |   4  |   5  |      |           |  `   |   6  |   7  |   8  |   9  |   0  |   -    |
+ * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
+ * | Tab    |   Q  |   W  |   E  |   R  |   T  |      |           |      |   Y  |   U  |   I  |   O  |   P  |   =    |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |Capslock|   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   '    |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |   \    |
+ * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+ *   | Ctlr | Gui  |Option| Left | Right|                                       |  Up  | Down |      |   [  |   ]    |
+ *   `----------------------------------'                                       `------------------------------------'
+ *                                        ,-------------.       ,-------------.
+ *                                        |      |      |       |      |      |
+ *                                 ,------|------|------|       |------+------+------.
+ *                                 |      |      |      |       |      |      |      |
+ *                                 | Space| Tab  |------|       |------|Enter |Backsp|
+ *                                 |      |      |m_play|       |      |      |ace   |
+ *                                 `--------------------'       `--------------------'
+*/
 #include QMK_KEYBOARD_H
 #include "version.h"
 
 enum layers {
-    QWERTY,
-    NUM,
-};
-enum custom_keycodes {
-    FULL_SCRN = SAFE_RANGE,
-    // LEFT_SCRN,
-    // RIGHT_SCRN,
-    // TOP_SCRN,
-    // BTM_SCRN,
-    // TL_SCRN,
-    // TR_SCRN,
-    // BL_SCRN,
-    // BR_SCRN,
-    // PRN = SAFE_RANGE,
-    // BRC,
-    // AGL_BRC,
-    // SQL_BRC,
-
-    // CUT,
-    // COPY,
-    // PASTE
+    DEFAULT,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [QWERTY] = LAYOUT_ergodox(
+        [DEFAULT] = LAYOUT_ergodox(
         // left hand
-        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
-        KC_NO,          KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_NO,
-        KC_NO,          LALT_T(KC_A),   LCTL_T(KC_S),   LSFT_T(KC_D),   LGUI_T(KC_F),   KC_G,
-        KC_NO,          KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           KC_NO,
-        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
+        KC_ESC,         KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_NO,
+        KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_NO,
+        KC_CAPS,        KC_A,           KC_S,           KC_D,           KC_F,           KC_G,
+        KC_LSFT,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           KC_NO,
+        KC_LCTL,        KC_LGUI,        KC_LALT,        KC_LEFT,        KC_RIGHT,
 
                                                                                         KC_NO,          KC_NO,
                                                                                                         KC_NO,
-                                                                        LT(NUM, KC_SPC),KC_BSPC,        KC_NO,
+                                                                        KC_SPC,         KC_TAB,         KC_MPLY,
         // right hand
-        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
-        KC_NO,          KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_NO,
-                        KC_H,           LGUI_T(KC_J),   LSFT_T(KC_K),   LCTL_T(KC_L),   LALT_T(KC_QUOT),KC_NO,
-        KC_NO,          KC_N,           KC_M,           KC_COMM,        KC_DOT,         KC_SLSH,        KC_NO,
-                                        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
+        KC_GRAVE,       KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINS,
+        KC_NO,          KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_EQL,
+                        KC_H,           KC_J,           KC_K,           KC_L,           KC_SCLN,        KC_QUOT,
+        KC_NO,          KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLSH,        KC_BSLS,
+                                        KC_UP,          KC_DOWN,        KC_NO,          KC_LBRC,        KC_RBRC,
         KC_NO,          KC_NO,
         KC_NO,
-        KC_NO,          KC_TAB,         KC_ENT
+        KC_NO,          KC_ENT,         KC_BSPC
     ),
-    [NUM] = LAYOUT_ergodox(
-        // left hand
-        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
-        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
-        KC_NO,          LALT_T(KC_NO),  LCTL_T(KC_NO),  LSFT_T(KC_NO),  LGUI_T(KC_NO),  KC_NO,
-        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
-        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
-
-                                                                                        KC_NO,          KC_NO,
-                                                                                                        KC_NO,
-                                                                        KC_NO,          KC_NO,          KC_NO,
-        // right hand
-        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
-        KC_NO,          KC_NO,          KC_NO,          KC_7,           KC_8,           KC_9,           KC_NO,
-                        KC_NO,          KC_NO,          KC_4,           KC_5,           KC_6,           KC_NO,
-        KC_NO,          KC_NO,          KC_NO,          KC_1,           KC_2,           KC_3,           KC_NO,
-                                        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
-        KC_NO,          KC_NO,
-        KC_NO,
-        KC_NO,          KC_NO,         KC_0
-    ),
-};
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    // switch (keycode) {
-    //     case FULL_SCRN:
-    //         if (record->event.pressed) {
-    //             register_code(KC_LGUI);
-    //             register_code(KC_LALT);
-    //             SEND_STRING("f");
-    //             clear_mods();
-    //         }
-    //         return true;
-    //     default:
-    //         return true;
-    // }
-    return true;
-}
-
-void matrix_scan_user(void) {
-    // uint8_t layer = biton32(layer_state);
-
-    ergodox_board_led_off();
-    ergodox_right_led_1_off();
-    ergodox_right_led_2_off();
-    ergodox_right_led_3_off();
-    // switch (layer) {
-    //     case UTIL:
-    //         ergodox_right_led_1_on();
-    //         break;
-    //     case NAV:
-    //         ergodox_right_led_2_on();
-    //         break;
-    // }
 };
