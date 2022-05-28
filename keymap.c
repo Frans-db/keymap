@@ -70,6 +70,7 @@ Format (with homerow mods):
 
 enum layers {
     DEFAULT,
+    COLEMAK,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -90,7 +91,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                         KC_H,           KC_J,           KC_K,           KC_L,           KC_SCLN,        KC_QUOT,
         KC_NO,          KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLSH,        KC_BSLS,
                                         KC_UP,          KC_DOWN,        KC_NO,          KC_LBRC,        KC_RBRC,
-        KC_NO,          KC_NO,
+        TO(COLEMAK),          KC_NO,
+        KC_NO,
+        KC_NO,          KC_ENT,         KC_BSPC
+        ),
+        [COLEMAK] = LAYOUT_ergodox(
+        // left hand
+        KC_ESC,         KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_NO,
+        KC_TAB,         KC_Q,           KC_W,           KC_F,           KC_P,           KC_G,           KC_NO,
+        KC_CAPS,        KC_A,           KC_R,           KC_S,           KC_T,           KC_D,
+        KC_LSFT,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           KC_NO,
+        KC_LCTL,        KC_LGUI,        KC_LALT,        KC_LEFT,        KC_RIGHT,
+
+                                                                                        KC_NO,          KC_VOLU,
+                                                                                                        KC_VOLD,
+                                                                        KC_SPC,         KC_TAB,         KC_MPLY,
+        // right hand
+        KC_GRAVE,       KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINS,
+        KC_NO,          KC_J,           KC_L,           KC_U,           KC_Y,           KC_SCLN,           KC_EQL,
+                        KC_H,           KC_N,           KC_E,           KC_I,           KC_O,        KC_QUOT,
+        KC_NO,          KC_K,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLSH,        KC_BSLS,
+                                        KC_UP,          KC_DOWN,        KC_NO,          KC_LBRC,        KC_RBRC,
+        TO(DEFAULT),          KC_NO,
         KC_NO,
         KC_NO,          KC_ENT,         KC_BSPC
     ),
