@@ -71,6 +71,7 @@ Format (with homerow mods):
 enum layers {
     DEFAULT,
     COLEMAK,
+    FUNCTION,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -91,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                         KC_H,           KC_J,           KC_K,           KC_L,           KC_SCLN,        KC_QUOT,
         KC_NO,          KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLSH,        KC_BSLS,
                                         KC_UP,          KC_DOWN,        KC_NO,          KC_LBRC,        KC_RBRC,
-        TO(COLEMAK),          KC_NO,
+        TO(COLEMAK),          TO(FUNCTION),
         KC_NO,
         KC_NO,          KC_ENT,         KC_BSPC
         ),
@@ -115,5 +116,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TO(DEFAULT),          KC_NO,
         KC_NO,
         KC_NO,          KC_ENT,         KC_BSPC
-    ),
+        ),
+        [FUNCTION] = LAYOUT_ergodox(
+        // left hand
+        KC_ESC,         KC_F1,           KC_F2,           KC_F3,           KC_F4,           KC_F5,           KC_NO,
+        KC_TAB,         KC_NO,           KC_NO,           KC_NO,           KC_NO,           KC_NO,           KC_NO,
+        KC_CAPS,        KC_NO,           KC_NO,           KC_NO,           KC_NO,           KC_NO,
+        KC_LSFT,        KC_NO,           KC_NO,           KC_NO,           KC_NO,           KC_NO,           KC_NO,
+        KC_LCTL,        KC_LGUI,        KC_LALT,        KC_LEFT,        KC_RIGHT,
+
+                                                                                        KC_NO,          KC_VOLU,
+                                                                                                        KC_VOLD,
+                                                                        KC_SPC,         KC_TAB,         KC_MPLY,
+        // right hand
+        KC_GRAVE,       KC_F6,           KC_F7,           KC_F8,           KC_F9,           KC_NO,           KC_NO,
+        KC_NO,          KC_NO,           KC_NO,           KC_NO,           KC_NO,           KC_NO,           KC_NO,
+                        KC_NO,           KC_NO,           KC_NO,           KC_NO,           KC_NO,        KC_NO,
+        KC_NO,          KC_NO,           KC_NO,           KC_NO,       KC_NO,         KC_NO,        KC_NO,
+                                        KC_UP,          KC_DOWN,        KC_NO,          KC_NO,        KC_NO,
+        TO(DEFAULT),          KC_NO,
+        KC_NO,
+        KC_NO,          KC_ENT,         KC_BSPC
+        ),
 };
